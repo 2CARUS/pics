@@ -9,15 +9,13 @@ class App extends React.Component {
   // this is a callback function, so you know; make it arrow function
   //  and do all event handlers as well
   onSearchSubmit = async term => {
-    const response = await unsplash.get(
-      "/search/photos",
-      /* */ {
-        params: {
-          query: term
-        }
+    const response = await unsplash.get("/search/photos", {
+      params: {
+        query: term
       }
-    );
+    });
 
+    console.log(response);
     this.setState({ images: response.data.results });
   };
   render() {
